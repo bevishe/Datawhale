@@ -26,7 +26,7 @@
 * Accept：客户端可识别的内容型列表
 * Host:请求的主机名，允许多个域名同处一个IP地址，即虚拟主机  
 ![](img/1-4.png)
-
+###
     # _*_ coding:utf-8 _*_
 	import requests  
 	headers = {
@@ -36,4 +36,4 @@
 	}
 	response = requests.get("http://www.baidu.com",headers = headers)
 	print(response.status_code)
-    
+      
