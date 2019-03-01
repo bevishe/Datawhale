@@ -9,5 +9,31 @@
  * get请求在url中传递的参数是有长度限制的，而post没有
  
 ### 2.如果是断开了网络，再发送申请，结果又是什么，了解返回的状态码。 
+    # _*_ coding:utf-8 _*_
+	import requests
+	response = requests.get("http://www.baidu.com")
+	print(response.status_code)
+!["结果"](img/1-1.png)  
+断开网络之后：  
+!["断开网络后的结果"](img/1-2.png)
   
-### 3.了解什么是请求头，如何添加请求头。
+状态码了解：  
+![](img/1-3.png)
+
+ 
+### 3.了解什么是请求头，如何添加请求头。  
+* User-Agent:产生请求的浏览器类型
+* Accept：客户端可识别的内容型列表
+* Host:请求的主机名，允许多个域名同处一个IP地址，即虚拟主机  
+![](img/1-4.png)
+
+    # _*_ coding:utf-8 _*_
+	import requests  
+	headers = {
+    'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,**;q=0.8',
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36',
+    'Host':'www.baidu.com'
+	}
+	response = requests.get("http://www.baidu.com",headers = headers)
+	print(response.status_code)
+    
