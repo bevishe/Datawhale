@@ -24,5 +24,5 @@
 
 
 
-[1]:code/day1.py
+[1]:https://github.com/bevishe/Datawhale/blob/master/crawl/code/day2.py
 
