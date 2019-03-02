@@ -25,9 +25,15 @@ def parse_one_page(html):
     items = re.findall(pattern,html)
     for i in items:
         # i记录了每一个电影所有的的信息
+        # title,img_url,movie_url,director_name,actor_name,category,time,country,key_word,grade,comments
         movie_url = re.findall(re.compile('href="(.*?)"',re.S),i)
         img_url = re.findall(re.compile('src="(.*?)" class="">',re.S),i)
         title = re.findall(re.compile('<span class="title">(.*?)</span>',re.S),i)
+        director_name = re.findall(re.compile('<div class="bd">.*?<p class>"导演：(.*?)主演',re.S),i)
+        actor_name = re.findall(re.compile('主演：(.*?)"'))
+
+        category = re.findall(re.compile(''))
+
 
 
 
