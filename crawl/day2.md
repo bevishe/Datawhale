@@ -14,15 +14,11 @@
 2.match（）  
 决定re是否在字符串刚开始的位置匹配。（这个方法并不是完全匹配，当pattern结束时若string还有剩余字符，仍然视为成功。想要完全匹配，可以在表达式末尾加上边界匹配符$）  
 3.findall（）遍历匹配最常使用的，返回的是一个列表  
-`re.findall(pattern,string,flags = 0)`
-
-出现的问题：  
-1.使用[代码][1]出现匹配时间过长的问题。
-
-
-
-
-
+`re.findall(pattern,html)`  
+[点击可查看代码][1]  
+结果如图所示：  
+![](img/2-2.png)
 
 [1]:https://github.com/bevishe/Datawhale/blob/master/crawl/code/day2.py
+
 

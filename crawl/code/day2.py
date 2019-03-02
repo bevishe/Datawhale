@@ -17,16 +17,19 @@ def get_one_page(url):
 
 # 对下下来的页面进行解析
 def parse_one_page(html):
-    pattern = re.compile('.*?global-nav-items.*?ol class="grid_view".*?<li>.*?<div.*?item.*?<div.*?pic<a href=(.*?)><img.*?alt=.*?src(.*?)class><//a><//div>.*?info.*?hd.*?title">(.*?)<//span>.*?class="bd".*?<p class>(.*?)<//p>.*?<//li>',re.S)
+    pattern = re.compile('<div class="hd">([\d\D]*?)</li>',re.S)
     items = re.findall(pattern,html)
-    print(len(items))
-    for item in items:
-        print(item[0],item[1],item[2],item[3])
-    print('hello')
-
+    print(items)
+    pattern_in = re.compile('href="(.*?)"',re.S)
+    for i in items:
+        items_in = re.findall(pattern_in,i)
+        print(len(items_in))
+        print(items_in[0])
+        # print(items_in[1])
+        # print(items_in[2])
+        # print(items_in[3])
 if __name__ == '__main__':
     html = get_one_page("https://movie.douban.com/top250").content.decode('utf-8')
-    print(html)
     parse_one_page(html)
-    print("main")
+
 
