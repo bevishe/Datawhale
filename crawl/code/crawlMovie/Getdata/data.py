@@ -1,31 +1,31 @@
+# _*_ coding:utf-8 _*_
+import requests
 from bs4 import BeautifulSoup
+from requests.packages.urllib3.exceptions import RequestError
 
-from bs4 import BeautifulSoup
+def get_one_html(url):
+    try:
+        response = requests.get(url = url)
+        if response.status_code == 200:
+            return response
+        else:
+            print("接收页面失败")
+    except RequestError:
+        print(RequestError)
+    pass
 
-html = '''
-<html><head><title>The Dormouse's story</title></head>
-<body>
-<p class="title"><b>The Dormouse's story</b></p>
+def get_ol_li_tag(tag):
+    return tag.has_attr('class')
 
-<p class="story">Once upon a time there were three little sisters; and their names were
-<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
-<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
-<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
-and they lived at the bottom of a well.</p>
-<p class="story">...</p>
-'''
-soup = BeautifulSoup(html,'lxml')
-print('1'+soup.prettify())
-print(soup.title)
-print(soup.title.name)
-print(soup.title.string)
-print(soup.title.parent.name)
-print(soup.p)
-print(soup.p["class"])
-print(soup.a)
-print(soup.find_all('a'))
-print(soup.find(id='link3'))
-divs = soup.find_all(class_ = 'title')
-print('__________________________________________')
-print(soup.title)
-print(soup.p)
+def parse_one_html(html):
+    movies_list = []
+    soup = BeautifulSoup(html,'lxml')
+    ol_tag = soup.find_all('li')
+    for _ in ol_tag:
+        li_tag = _.find_all('div')
+        print(li_tag)
+
+
+if __name__ == '__main__':
+    html = get_one_html('https://movie.douban.com/top250').text
+    parse_one_html(html)
