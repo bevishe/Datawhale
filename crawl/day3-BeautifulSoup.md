@@ -77,17 +77,17 @@ eg：
 **子节点**：一个tag可能包含多个字符串或者其他tag，这些字符串和其他的tag就是这个tag的子节点，beautifulsoup中有很多操作和遍历子节点的属性，但是但是字符串子节点不支持  
 通过属性来获取内容`soup.a`或者`soup.body.p`但是需要注意的是使用这种方法只能获取当前名字的第一个tag，如果想获得所有a标签的内容，就需要使用find_all()函数`soup.find_all('a')`  
 **.contents和.children**：tag的.contents属性可以将tag的子节点以列表的方式输出：(注意输出的对象是该tag的直接子节点)
-![](img/3-3.png)
-**.descendants**：  
-![](img/3-4.png)
-**.string**:
-![](img/3-5.png)
-**.strings 和 stripped_strings** :
-![](img/3-6.png)
-**父节点**：
+![](img/3-3.png)    
+**.descendants**：   
+![](img/3-4.png)  
+**.string**:  
+![](img/3-5.png)  
+**.strings 和 stripped_strings** :  
+![](img/3-6.png)  
+**父节点**：  
 ![](img/3-7.png)
 ![](img/3-8.png)
-**兄弟节点**：
+**兄弟节点**： 
 .next_sibling 和 .previous_sibling分别返回当前节点的下面一个兄弟节点和该tag的前面一个兄弟节点，返回的是一个节点  
 .next_siblings 和 .previous_siblings返回的是该节点的所有后面的兄弟节点和所有前面的兄弟节点，可以对其进行迭代  
 .next_element 和 .previous_element同上但是包括tag和字符串
