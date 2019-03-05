@@ -16,12 +16,16 @@ def get_one_page(url):
 def get_one_html_lxml(html):
     html = etree.HTML(html)
     big = html.xpath('//*[@id="postcontainer"]')
+    #print(big[0].xpath('div/table/tbody/tr/td[1]/div[2]/a/text()'))
     for _ in big:
         # 获取用户名
         print(_.xpath('div/table/tbody/tr/td[1]/div[2]/a/text()'))
         # 获取发表的内容
-        print(_.xpath('div/table/tbody/tr/td[2]/div[2]/div[2]/table/tbody/tr/td/text()'))
-    # name = big.xpath('div/table/tbody/tr/td[1]/div[2]/a/text()')
+        #print(_.xpath('div/table/tbody/tr/td[2]/div[2]/div[2]/table/tbody/tr/td//text()'))
+        #//*/table/tbody/tr/td/div/div/table/tbody/tr/td/text()
+    for i in html.xpath('//*[@id="postcontainer"]/div/table/tbody/tr/td/div/div/table/tbody/tr/td//text()'):
+        print(i.strip())
+    # name = big.xpath('div/table/tbody/tr/td[1]/div[2]/a/text()').strip()
     # content = big.xpath('div/table/tbody/tr/td[2]/div[2]/div[2]/table/tbody/tr/td/text()')
     # for i in range(0,len(big.xpath('div'))):
     #     print(name[i])

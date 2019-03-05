@@ -86,7 +86,7 @@ eg：
 ![](img/3-6.png)  
 **父节点**：  
 ![](img/3-7.png)
-![](img/3-8.png)
+![](img/3-8.png)  
 **兄弟节点**： 
 .next_sibling 和 .previous_sibling分别返回当前节点的下面一个兄弟节点和该tag的前面一个兄弟节点，返回的是一个节点  
 .next_siblings 和 .previous_siblings返回的是该节点的所有后面的兄弟节点和所有前面的兄弟节点，可以对其进行迭代  
