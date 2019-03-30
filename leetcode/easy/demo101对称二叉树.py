@@ -26,8 +26,6 @@ class TreeNode:
         self.right = None
 
 class Solution:
-
-
     def isSymmetric_(self,r, t):
         if r == None and t == None:
             return True
