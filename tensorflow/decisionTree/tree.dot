@@ -1,0 +1,21 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="纹理 <= 1.5\nentropy = 0.9975\nsamples = 17\nvalue = [8, 9]\nclass = 坏", fillcolor="#399de51c"] ;
+1 [label="entropy = 0.0\nsamples = 7\nvalue = [0, 7]\nclass = 坏", fillcolor="#399de5ff"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="敲声 <= 1.5\nentropy = 0.7219\nsamples = 10\nvalue = [8, 2]\nclass = 好", fillcolor="#e58139bf"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label="根 <= 0.5\nentropy = 0.5033\nsamples = 9\nvalue = [8, 1]\nclass = 好", fillcolor="#e58139df"] ;
+2 -> 3 ;
+4 [label="色泽 <= 1.5\nentropy = 0.8113\nsamples = 4\nvalue = [3, 1]\nclass = 好", fillcolor="#e58139aa"] ;
+3 -> 4 ;
+5 [label="entropy = 0.0\nsamples = 1\nvalue = [1, 0]\nclass = 好", fillcolor="#e58139ff"] ;
+4 -> 5 ;
+6 [label="entropy = 0.9183\nsamples = 3\nvalue = [2, 1]\nclass = 好", fillcolor="#e581397f"] ;
+4 -> 6 ;
+7 [label="entropy = 0.0\nsamples = 5\nvalue = [5, 0]\nclass = 好", fillcolor="#e58139ff"] ;
+3 -> 7 ;
+8 [label="entropy = 0.0\nsamples = 1\nvalue = [0, 1]\nclass = 坏", fillcolor="#399de5ff"] ;
+2 -> 8 ;
+}

@@ -9,19 +9,11 @@ class Solution():
         :param prices:
         :return:
         '''
-        # 1.求取所有升序子数组的其实index
-        min_index_list = []
-        for i in range(0,len(prices)):
-            if i == 0:
-                min_index_list.append(0)
-            elif i + 1 <= len(prices) - 1 and prices[i] > prices[i]:
-                min_index_list.append(i+1)
-        # 2.将所有子数组中的最后一个数加到max_num_list中，返回最大值，和
-
-
-
-
-        return maxPrice
-
+        max = 0
+        for i in range(prices.__len__()):
+            for j in range(i+1,prices.__len__()):
+                if max < prices[j] - prices[i]:
+                    max = prices[j] - prices[i]
+        return max
 if __name__ == '__main__':
     print(Solution().maxProfit([1,2,3,4,5,10,1]))

@@ -11,11 +11,11 @@ import matplotlib.pyplot as plt
 '''
 使用tensorflow来自己实现一个简单的线性回归
 '''
-#返回0-1之间100个符合均匀分布的随机数
+# 返回0-1之间100个符合均匀分布的随机数，注意要变为np格式的数据
 x_data = np.random.rand(100).astype(np.float32)
 y_data = x_data*0.1 +0.3
 
-#create the tensorflow structure
+# create the tensorflow structure
 Weights = tf.Variable(tf.random_uniform([1],-1.0,1.0))
 biase = tf.Variable(tf.zeros([1]))
 
@@ -28,7 +28,7 @@ train = optimizer.minimize(loss)
 
 init = tf.initialize_all_variables()
 
-#end
+# end
 
 sess = tf.Session()
 sess.run(init)
@@ -39,5 +39,5 @@ for step in range(201):
 	plt.plot(x_data,y_data,color = 'r')
 	plt.plot(x_data,y_,color = 'b')
 	plt.show()
-	if step%20 == 0:
-		print(step,sess.run(Weights),sess.run(biase))
+	if step % 20 == 0:
+		print(step, sess.run(Weights),sess.run(biase))
